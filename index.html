@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Hari Guru</title>
+
+<style>
+    /* ===========================
+       BACKGROUND BINTANG BERGERAK
+       =========================== */
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background: #0d0d15;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: white;
+    }
+
+    .stars {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: moveStars linear infinite;
+    }
+
+    @keyframes moveStars {
+        from { transform: translateY(0); }
+        to { transform: translateY(100vh); }
+    }
+
+    /* ===========================
+       KONTAINER
+       =========================== */
+    .container {
+        max-width: 720px;
+        margin: 40px auto;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 25px 30px;
+        border-radius: 18px;
+        backdrop-filter: blur(10px);
+        text-align: center;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+        animation: fadeIn 1.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        font-weight: 600;
+        color: #ffffff;
+        text-shadow: 0 0 8px rgba(255,255,255,0.5);
+    }
+
+    /* ===========================
+       FOTO GURU
+       =========================== */
+    .photo {
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #ffffff;
+        box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        margin-top: 15px;
+        animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+
+    /* ===========================
+       PESAN
+       =========================== */
+    .message {
+        font-size: 18px;
+        line-height: 1.7;
+        margin-top: 20px;
+        color: #e6e6e6;
+    }
+
+    .signature {
+        margin-top: 30px;
+        font-style: italic;
+        color: #cfcfcf;
+        font-size: 16px;
+    }
+</style>
+
+</head>
+<body>
+
+<!-- ===========================
+     BINTANG-BINTANG RANDOM
+     =========================== -->
+<div class="stars" id="stars"></div>
+
+<script>
+    // Membuat banyak bintang secara otomatis
+    const starsContainer = document.getElementById("stars");
+    const starCount = 100;
+
+    for (let i = 0; i < starCount; i++) {
+        let star = document.createElement("div");
+        star.className = "star";
+        star.style.left = Math.random() * 100 + "vw";
+        star.style.top = Math.random() * -100 + "vh";
+        star.style.animationDuration = 2 + Math.random() * 5 + "s";
+        star.style.opacity = 0.3 + Math.random() * 0.7;
+        starsContainer.appendChild(star);
+    }
+</script>
+
+<!-- ===========================
+     ISI KARTU
+     =========================== -->
+<div class="container">
+    <h1> Selamat Hari Guru </h1>
+
+    <!-- Foto guru -->
+    <img src="foto.jpg" alt="Foto Guru" class="photo">
+
+    <p class="message">
+        Terima kasih,
+        untuk setiap ilmu yang pernah diberikan,
+        kesabaran, bimbingan, dan dedikasi yang telah menginspirasi menjadi versi yang lebih baik dalam diri.
+        <br><br>
+        Selamat Hari Guru.
+        Semoga Tuhan membalas semua kebaikanmu dengan kebahagiaan yang tidak pernah habis,
+        diberi kesehatan dan kesabaran dalam menjalankan tugas mulia ini.
+    </p>
+
+    <p class="signature">
+        — Happy teacher day, maaf masih berantakan —
+    </p>
+</div>
+
+</body>
+</html>
